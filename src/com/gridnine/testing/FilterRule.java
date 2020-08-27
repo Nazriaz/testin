@@ -1,5 +1,5 @@
 package com.gridnine.testing;
 
-public interface FilterRule {
+interface FilterRule {
     boolean apply(Flight flight);
 }

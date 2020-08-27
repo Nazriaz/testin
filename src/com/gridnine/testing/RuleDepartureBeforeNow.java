@@ -2,10 +2,15 @@ package com.gridnine.testing;
 
 import java.time.LocalDateTime;
 
-public class RuleDepartureBeforeNow implements FilterRule {
+class RuleDepartureBeforeNow implements FilterRule {
+    private LocalDateTime nowDate = LocalDateTime.now();
+
     @Override
     public boolean apply(Flight flight) {
-        LocalDateTime now = LocalDateTime.now();
-        return flight.getSegments().stream().noneMatch(segment -> segment.getDepartureDate().isBefore(now));
+        return flight.getSegments().stream().noneMatch(this::checkSegment);
+    }
+
+    private boolean checkSegment(Segment segment) {
+        return segment.getDepartureDate().isBefore(nowDate);
     }
 }

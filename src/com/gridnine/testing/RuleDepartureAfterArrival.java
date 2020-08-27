@@ -1,6 +1,6 @@
 package com.gridnine.testing;
 
-public class RuleDepartureAfterArrival implements FilterRule {
+class RuleDepartureAfterArrival implements FilterRule {
     @Override
     public boolean apply(Flight flight) {
         return flight.getSegments().stream().noneMatch(this::checkSegment);

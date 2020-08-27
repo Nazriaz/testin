@@ -2,7 +2,7 @@ package com.gridnine.testing;
 
 import java.util.List;
 
-public class RuleOnTheGround2orMoreHours implements FilterRule {
+class RuleOnTheGround2orMoreHours implements FilterRule {
     public boolean apply(Flight flight) {
         List<Segment> segments = flight.getSegments();
         for (int i = 0; i < segments.size() - 1; i++) {
