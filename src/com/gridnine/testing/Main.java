@@ -10,11 +10,10 @@ public class Main {
         FilterRule ruleOnTheGround2orMoreHours = new RuleOnTheGround2orMoreHours();
         FiltrationMechanism filtrationMechanism = new FiltrationMechanism();
 
-        filtrationMechanism.doFiltration(flights,ruleDepartureBeforeNow).forEach(System.out::println);
+        filtrationMechanism.doFiltration(flights, ruleDepartureBeforeNow).forEach(System.out::println);
         System.out.println();
-        filtrationMechanism.doFiltration(flights,ruleDepartureAfterArrival).forEach(System.out::println);
+        filtrationMechanism.doFiltration(flights, ruleDepartureAfterArrival).forEach(System.out::println);
         System.out.println();
-        filtrationMechanism.doFiltration(flights,ruleOnTheGround2orMoreHours).forEach(System.out::println);
+        filtrationMechanism.doFiltration(flights, ruleOnTheGround2orMoreHours).forEach(System.out::println);
     }
-
 }

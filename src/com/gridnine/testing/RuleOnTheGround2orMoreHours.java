@@ -1,17 +1,17 @@
 package com.gridnine.testing;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class RuleOnTheGround2orMoreHours implements FilterRule {
-    public boolean rule(Flight flight) {
+    public boolean apply(Flight flight) {
         List<Segment> segments = flight.getSegments();
-        Iterator<Segment> iterator = segments.iterator();
-        Segment current = iterator.next();
-        while (iterator.hasNext()) {
-            Segment next = iterator.next();
-            if (!current.getArrivalDate().plusHours(2).isAfter(next.getDepartureDate())) return false;
-            else current = next;
+        for (int i = 0; i < segments.size() - 1; i++) {
+            boolean isCorrect =
+                    segments.get(i).getArrivalDate().plusHours(2)
+                            .isAfter(segments.get(i + 1).getDepartureDate());
+            if (isCorrect) {
+                return false;
+            }
         }
         return true;
     }
